@@ -4,7 +4,7 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
 
-        # Better solution using count vars. TC: O(n) SC: O(1)
+        # Better solution using count vars. TC: O(2n) SC: O(1)
         '''
         c0, c1, c2 = 0, 0, 0
         for i in nums:
@@ -24,6 +24,7 @@ class Solution:
         return nums
         '''
         # DNF (Dutch National Flag Alogirthm)
+        # Previous one did two iterations so TC was O(2n). In case of further optimization use DNF
         # TC: O(n)
         # SC: O(1)
         low, mid, high = 0, 0, len(nums)-1
