@@ -5,6 +5,7 @@ class Solution:
         """
 
         # Better solution using count vars. TC: O(n) SC: O(1)
+        '''
         c0, c1, c2 = 0, 0, 0
         for i in nums:
             if i == 0:
@@ -21,5 +22,20 @@ class Solution:
         for j in range(c0+c1, len(nums)):
             nums[j] = 2
         return nums
-    
-        
+        '''
+        # DNF (Dutch National Flag Alogirthm)
+        # TC: O(n)
+        # SC: O(1)
+        low, mid, high = 0, 0, len(nums)-1
+        while mid <= high:
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
+        return
+
