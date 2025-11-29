@@ -13,7 +13,7 @@ class Solution:
             elif s[i] == '(' and cnt >= 1:
                 res += s[i]
                 cnt += 1
-            # Count is greater than 1 so add in res and decrease counter as this is closing para
+            # Count is greater than 1 so add in res and decrease counter as this is closing para. (>= is not used here because = condition will have outer para)
             elif s[i] == ')' and cnt > 1:
                 res += s[i]
                 cnt -= 1
