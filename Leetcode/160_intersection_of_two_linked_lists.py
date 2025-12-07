@@ -21,3 +21,12 @@ class Solution:
                 p2 = p2.next
         return None
 
+# Space Complexity: O(1)
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        pa = headA
+        pb = headB
+        while pa != pb:
+            pa = pa.next if pa else headB
+            pb = pb.next if pb else headA
+        return pa
