@@ -14,5 +14,6 @@ class Solution:
                 res.append(i)
         res = '/' + '/'.join(res)
         return res
-
+# time complexity: O(N) where N is the length of the path.
+# space complexity: O(N) in the worst case, we may store all the directories in the stack.
         
