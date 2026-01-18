@@ -12,7 +12,7 @@ class Solution:
         # h = hours; k = bananas/hr speed
         # if pile[i] < k all bananas eaten and no more will be eaten the same hour
         
-        high = max(piles) # Speed cannot be more than this value
+        high = max(piles) # Speed cannot be more than this value why?
         low = 1 # why? because min speed can be 1 banana/hr
         res = -1
         while low <= high:
