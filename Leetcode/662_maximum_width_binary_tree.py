@@ -28,3 +28,5 @@ class Solution:
                 q.append([node.right, 2*num + 1, level + 1])
             
         return res
+
+# At a time in the queue we are storing parent nodes along with child nodes. Only way to distinguish between levels is by storing level information as well. Hence we are storing level information in the queue.
