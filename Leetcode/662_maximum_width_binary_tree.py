@@ -12,7 +12,7 @@ from collections import deque
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         res = 0
-        q = deque([[root, 1, 0]]) # [node, num, level]
+        q = deque([[root, 1, 0]]) # [node, num, level] num is basically the index of the node if we consider the tree as a complete binary tree. 1-based indexing.
         prevLevel, prevNum = 0, 1
         while q:
             node, num, level = q.popleft()
