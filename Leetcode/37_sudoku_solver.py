@@ -33,3 +33,6 @@ class Solution:
                                 board[row][col] = '.'
                     return False
         return True            
+    
+    #time complexity: O(9^(n*n)) where n is 9 here. In the worst case, we might have to fill all cells and for each cell we have 9 options.
+    #space complexity: O(1) as we are modifying the board in place and not
