@@ -18,3 +18,5 @@ class Solution:
                 used[i] = False
         find(nums, used, ds)
         return res
+#time complexity: O(N * N!) where N is the length of nums. There are N! permutations and generating each permutation takes O(N) time.
+#space complexity: O(N) for the recursion stack and the temporary list used to store permutations
