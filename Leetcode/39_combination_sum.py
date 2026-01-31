@@ -14,5 +14,5 @@ class Solution:
             find(ind+1, val, ds)
         find(0, 0, ds)
         return res
-# Time Complexity: O(2t * k) due to exploring all combinations up to the target with copying each valid combination of average length k.
+# Time Complexity: O(2^{T/m} * k) due to exploring all combinations up to the target with copying each valid combination of average length k.
 # Space Complexity: O(k * x) to store all valid combinations, where x is the number of combinations and k is their average length.
