@@ -21,3 +21,5 @@ class Solution:
             find_combination(candidates, res, ds, next_ind, target)
         find_combination(candidates, res, ds, 0, target)
         return res
+#time complexity: O(2^n) in the worst case, where n is the number of candidates, as we explore all possible combinations.
+#space complexity: O(k * x) to store all valid combinations, where x is the number of combinations and k is their average length.
