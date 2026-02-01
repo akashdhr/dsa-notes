@@ -8,3 +8,5 @@ class Solution:
                 currElem = nums[i]
                 currInd += 1
         return currInd
+#time complexity: O(n) where n is the number of elements in the array.
+#space complexity: O(1) as we are not using any extra space.
