@@ -4,19 +4,17 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from ast import List
-
 
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
-        def dfs(res, node):
+        def dfs(node, res):
             if not node:
                 return
             res.append(node.val)
-            dfs(res, node.left)
-            dfs(res, node.right)
-        dfs(res, root)
+            dfs(node.left, res)
+            dfs(node.right, res)
+        dfs(root, res)
         return res
         
 # time complexity: O(N) where N is the number of nodes in the binary tree. We visit each node exactly once.
