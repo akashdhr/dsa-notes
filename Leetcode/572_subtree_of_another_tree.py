@@ -6,19 +6,20 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        def isSame(p, q):
+            if not p and not q:
+                return True
+            if p and q and p.val == q.val:
+                return isSame(p.left, q.left) and isSame(p.right, q.right)
+            else:
+                return False
         if not subRoot:
             return True
         if not root:
             return False
-        if self.sameTree(root, subRoot):
+        if isSame(root, subRoot):
             return True
-        return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
-        
-    def sameTree(self, root, subRoot):
-        if not root and not subRoot:
-            return True
-        if root and subRoot and root.val == subRoot.val:
-            return (self.sameTree(root.left, subRoot.left) and (self.sameTree(root.right, subRoot.right)))
-        return False
+        else:
+            return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 #time complexity: O(N*M) in the worst case, where N is the number of nodes in the main tree and M is the number of nodes in the subtree. This occurs when we have to check each node of the main tree against the subtree.
 #space complexity: O(H) where H is the height of the binary tree. This space is used by the recursion stack. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N).
