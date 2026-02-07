@@ -35,18 +35,16 @@ class Solution:
 #         self.right = right
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        self.maxi = 0
+        self.max = 0
         def find(node):
             if not node:
                 return 0
-
-            lh = find(node.left)
-            rh = find(node.right)
-            self.maxi = max(self.maxi, lh + rh)
-
-            return 1 + max(lh, rh)
+            l = find(node.left)
+            r = find(node.right)
+            self.max = max(l+r, self.max)
+            return 1 + max(l,r)
         find(root)
-        return self.maxi
+        return self.max
 
 # time complexity: O(N) where N is the number of nodes in the binary tree. We visit each node exactly once.
 # space complexity: O(H) where H is the height of the binary tree. This space is used by the recursion stack. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N).
