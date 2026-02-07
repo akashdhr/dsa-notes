@@ -11,6 +11,6 @@ class Solution:
         if p and q and p.val == q.val:
             return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
         else:
-            return False
+            return False 
 #time complexity: O(N) where N is the number of nodes in the binary tree. We visit each node exactly once.
 #space complexity: O(H) where H is the height of the binary tree. This space is used by the recursion stack. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N).
