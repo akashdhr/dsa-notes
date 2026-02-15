@@ -23,4 +23,6 @@ class Solution:
                 break
             cur = cur.next
         return head
-        
+
+#time complexity: O(n) where n is the number of nodes in the linked list.
+#space complexity: O(1) since we are modifying the list in place and not using any additional data structures to store the nodes.
