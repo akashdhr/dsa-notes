@@ -14,3 +14,5 @@ class Solution:
                 return True
         return False
 
+# time complexity: O(n) where n is the number of nodes in the linked list.
+# space complexity: O(1) since we are using only a constant amount of space to store the slow and fast pointers.
