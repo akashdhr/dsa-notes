@@ -13,5 +13,6 @@ class Solution:
         total = sum(stack)
         return total
 
+
 # time complexity: O(N) where N is the number of operations.
 # space complexity: O(N) in the worst case, we may store all the operations in the stack.
