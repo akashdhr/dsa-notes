@@ -22,4 +22,7 @@ class Solution:
             else:
                 return s[low+1:high+1] == s[low+1:high+1][::-1] or s[low:high] == s[low:high][::-1]
         return True
+
+#time complexity: O(N) where N is the length of the string.
+#space complexity: O(1) since we are using constant space to store the pointers and temporary variables.
         
