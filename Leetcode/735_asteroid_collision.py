@@ -1,18 +1,19 @@
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-        stack = [] # stack will store the current asteroids
-        for i in asteroids:
+        stack = []
+        for roid in asteroids:
             # check for collisions
-            while stack and i<0 and stack[-1]>0:
-                diff = stack[-1]+i
-                if diff<0:
+            while stack and roid < 0 and stack[-1] > 0:
+                diff = stack[-1] + roid
+                if diff < 0:
                     stack.pop()
-                elif diff>0:
-                    i = 0
+                elif diff > 0:
+                    roid = 0
                 else:
-                    i = 0
+                    roid = 0
                     stack.pop()
-            if i:
-                stack.append(i)
-
-        return stack 
+            if roid:
+                stack.append(roid)
+        return stack
+#time complexity: O(N) where N is the number of asteroids.
+#space complexity: O(N) in the worst case when all asteroids are moving in the same direction and there are no collisions, we will have to store all asteroids in the stack.
