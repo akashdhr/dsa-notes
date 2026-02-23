@@ -25,3 +25,6 @@ class Solution:
             else:
                 low = mid + 1
         return res
+
+#time complexity: O(N log(S)) where N is the number of packages and S is the sum of weights. The binary search will run in log(S) time and for each mid value, we will calculate the number of days required to ship all packages which takes O(N) time.
+#space complexity: O(1) since we are using constant space to store the pointers and temporary variables.
