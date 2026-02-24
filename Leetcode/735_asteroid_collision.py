@@ -15,5 +15,6 @@ class Solution:
             if roid:
                 stack.append(roid)
         return stack
+    
 #time complexity: O(N) where N is the number of asteroids.
 #space complexity: O(N) in the worst case when all asteroids are moving in the same direction and there are no collisions, we will have to store all asteroids in the stack.
