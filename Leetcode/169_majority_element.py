@@ -12,15 +12,17 @@ class Solution:
         # Optimal: Moore's Voting Algorithm
         # TC: O(n)
         # SC: O(1)
-        cnt = 0
-        el = 0
-        for i in range(len(nums)):
-            if cnt == 0:
-                cnt = 1
-                el = nums[i]
-            elif el == nums[i]:
-                cnt += 1
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        curr = 0
+        ele = nums[0]
+        for i in nums:
+            if curr == 0:
+                ele = i
+            if i == ele:
+                curr += 1
             else:
-                cnt -= 1
-        return el
+                curr -= 1
+        return ele
+
         
