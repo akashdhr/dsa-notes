@@ -48,3 +48,26 @@ class MyHashSet:
 
     def contains(self, key: int) -> bool:
         return key in self.buckets[self._hash(key)]
+
+# ---------------------------------------------------------------------
+# New Approach
+
+class MyHashSet:
+
+    def __init__(self):
+        self.items = [False] * (10**6 + 1)
+        
+
+    def add(self, key: int) -> None:
+        self.items[key] = True
+        
+
+    def remove(self, key: int) -> None:
+        self.items[key] = False
+        
+
+    def contains(self, key: int) -> bool:
+        return self.items[key]
+
+# time complexity: O(1) for add, remove, and contains operations since we are directly accessing the index in the list.
+# space complexity: O(N) where N is the maximum key value (10^6 in this case) since we are using a list of boolean values to store the presence of keys in the hash set.
