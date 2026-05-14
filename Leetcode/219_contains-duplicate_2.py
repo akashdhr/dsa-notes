@@ -1,11 +1,12 @@
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        hset = {}
+        hashset = {}
         for i in range(0, len(nums)):
-            if nums[i] in hset and abs(i - hset[nums[i]]) <= k:
+            if nums[i] in hashset and abs(hashset[nums[i]] - i) <= k:
                 return True
-            hset[nums[i]] = i
-        return False
+            hashset[nums[i]] = i
+        return False 
+        
 
 # Time complexity: O(N)
 # Space complexity: O(N)
