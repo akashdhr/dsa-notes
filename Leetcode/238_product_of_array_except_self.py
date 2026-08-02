@@ -1,14 +1,19 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        ans = [1] * len(nums)
-        prefix = suffix = 1
+        res = [1] * len(nums)
+        runa = 1
+        runb = 1
+        # Run A
         for i in range(len(nums)):
-            ans[i] = prefix
-            prefix *= nums[i]
+            res[i] = runa
+            runa *= nums[i]
+
+        # Run B
         for j in range(len(nums)-1, -1, -1):
-            ans[j] *= suffix
-            suffix *= nums[j]
-        return ans
+            res[j] *= runb
+            runb *= nums[j]
+        return res
+
 
 # time complexity: O(N)
 # space complexity: O(1)
