@@ -10,14 +10,17 @@ Then we will store the current prefix sum in the map increasing its occurrence b
 '''
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        numset = {}
-        numset[0] = 1
         preSum = 0
-        cnt = 0
-        for i in nums:
-            preSum += i
+        store = dict()
+        store[0] = 1
+        ans = 0
+        for i in range(len(nums)):
+            preSum += nums[i]
             diff = preSum - k
-            if diff in numset:
-                cnt += numset[diff]
-            numset[preSum] = numset.get(preSum, 0) + 1
-        return cnt
+            if diff in store:
+                ans += store[diff]
+            store[preSum] = store.get(preSum, 0) + 1
+        return ans
+
+# time complexity: O(N) where N is the number of elements in the input array. We traverse the array once and each lookup and insertion operation in the hash map takes O(1) time on average.
+# space complexity: O(N) in the worst case when all prefix sums are distinct, we will have to store all prefix sums in the hash map.
