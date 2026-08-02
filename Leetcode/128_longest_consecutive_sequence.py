@@ -9,14 +9,21 @@ Instead of using linear search, we will use the set data structure itself to sea
 '''
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        numset = set(nums)
-        maxCount = 0
-        for i in numset:
-            if i-1 in numset:
+        og = set(nums)
+        longest = 0
+        for i in og:
+            cnt = 0
+            val = i
+            if i-1 in og:
                 continue
-            count = 0
-            while i+count in numset:
-                count+=1
-            maxCount = max(count, maxCount)
-        return maxCount
+            while val in og:
+                val += 1
+                cnt += 1
+            longest = max(longest, cnt)
+        return longest    
+        
+                
+
+# time complexity: O(N) where N is the number of elements in the input array. We traverse the array once to put all elements into the set and then we traverse the set to find the longest consecutive sequence.
+# space complexity: O(N) in the worst case when all elements in the array are distinct 
             
