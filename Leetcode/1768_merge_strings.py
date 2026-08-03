@@ -1,18 +1,18 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        w1 = w2 = 0
-        res = ''
         minLen = min(len(word1), len(word2))
+        ans = []
         for i in range(minLen):
-            res += word1[w1]
-            res += word2[w2]
-            w1 += 1
-            w2 += 1
-        if w1 != len(word1):
-            res += word1[w1:]
-        if w2 != len(word2):
-            res += word2[w2:]
-        return res
+            ans.append(word1[i])
+            ans.append(word2[i])
+        i = minLen
+        while i < len(word1):
+            ans.append(word1[i])
+            i += 1
+        while i < len(word2):
+            ans.append(word2[i])
+            i += 1
+        return ''.join(ans)
         
     
 # time complexity: O(N + M) where N and M are the lengths of word1 and word2 respectively.
