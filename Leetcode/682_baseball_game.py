@@ -5,13 +5,15 @@ class Solution:
             if i == '+':
                 stack.append(stack[-1] + stack[-2])
             elif i == 'D':
-                stack.append(stack[-1]*2)
+                stack.append(2 * stack[-1])
             elif i == 'C':
                 stack.pop()
             else:
                 stack.append(int(i))
-        total = sum(stack)
-        return total
+        ans = sum(stack)
+        return ans
+
+        
 
 # time complexity: O(N) where N is the number of operations.
 # space complexity: O(N) in the worst case, we may store all the operations in the stack.
