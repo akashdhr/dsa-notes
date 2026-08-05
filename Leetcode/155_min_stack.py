@@ -1,12 +1,12 @@
 class MinStack:
 
     def __init__(self):
-        self.s = []  # stores the main stack values
-        self.ms = [] # stores the min value for each index
-
-    def push(self, val: int) -> None:
-        self.s.append(val)
-        x = min(val, self.ms[-1] if self.ms else val)
+        self.s = []
+        self.ms = []
+        
+    def push(self, value: int) -> None:
+        self.s.append(value)
+        x = min(value, self.ms[-1] if self.ms else value)
         self.ms.append(x)
 
     def pop(self) -> None:
@@ -15,7 +15,7 @@ class MinStack:
 
     def top(self) -> int:
         return self.s[-1]
-        
+
     def getMin(self) -> int:
         return self.ms[-1]
         
