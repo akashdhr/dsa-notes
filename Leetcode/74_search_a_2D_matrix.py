@@ -1,29 +1,26 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        rows = len(matrix)
-        cols = len(matrix[0])
-        search_row_index = -1
         low = 0
-        high = rows-1
-
+        high = len(matrix) - 1
+        row = high
+        # find the lower bound
         while low <= high:
             mid = (low + high)//2
-            if matrix[mid][0] <= target <= matrix[mid][cols-1]:
-                search_row_index = mid
-                break
+            if matrix[mid][0] == target:
+                return True
             elif matrix[mid][0] < target:
+                row = mid 
                 low = mid + 1
             else:
                 high = mid - 1
-        if search_row_index == -1:
-            return False
+        # find the value in the row
         low = 0
-        high = cols-1
+        high = len(matrix[0]) - 1
         while low <= high:
             mid = (low + high)//2
-            if matrix[search_row_index][mid] == target:
+            if matrix[row][mid] == target:
                 return True
-            elif matrix[search_row_index][mid] < target:
+            elif matrix[row][mid] < target:
                 low = mid + 1
             else:
                 high = mid - 1
