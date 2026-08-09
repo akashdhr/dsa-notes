@@ -7,15 +7,17 @@
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        l = 0
-        r = n
-        while l<=r:
-            m = (l+r)//2
-            res = guess(m)
-            if res == -1:
-                r = m - 1
-            elif res == 1:
-                l = m + 1
+        low = 1
+        high = n
+        while low <= high:
+            mid = (low+high)//2
+            curr = guess(mid)
+            if curr == -1:
+                high = mid - 1
+            elif curr == 1:
+                low = mid + 1
             else:
-                return m
-        
+                return mid
+
+# time complexity: O(logN) where N is the range of numbers from 1 to n.
+# space complexity: O(1) as we are using constant space.
