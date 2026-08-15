@@ -7,13 +7,14 @@
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
-        def dfs(node, res):
+        def dfs(res, node):
             if not node:
                 return
-            dfs(node.left, res)
+            dfs(res, node.left)
             res.append(node.val)
-            dfs(node.right, res)
-        dfs(root, res)
+            dfs(res, node.right)
+        dfs(res, root)
         return res
+    
 # time complexity: O(N) where N is the number of nodes in the binary tree. We visit each node exactly once.
 # space complexity: O(H) where H is the height of the binary tree. This space is used by the recursion stack. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N).
