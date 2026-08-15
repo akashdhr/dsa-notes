@@ -9,10 +9,11 @@ class Solution:
         def isSame(p, q):
             if not p and not q:
                 return True
-            if p and q and p.val == q.val:
+            elif p and q and p.val == q.val:
                 return isSame(p.left, q.left) and isSame(p.right, q.right)
             else:
                 return False
+        
         if not subRoot:
             return True
         if not root:
@@ -21,5 +22,7 @@ class Solution:
             return True
         else:
             return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+
+        
 #time complexity: O(N*M) in the worst case, where N is the number of nodes in the main tree and M is the number of nodes in the subtree. This occurs when we have to check each node of the main tree against the subtree.
 #space complexity: O(H) where H is the height of the binary tree. This space is used by the recursion stack. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N).
