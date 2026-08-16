@@ -43,3 +43,25 @@ class Solution:
         
 #time complexity: O(H) where H is the height of the binary search tree. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N).
 # space complexity: O(1) since we are using an iterative approach and not using any additional space that grows with the input size.
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        def dfs(node):
+            if not node:
+                return TreeNode(val)
+            elif node.val < val:
+                node.right = dfs(node.right)
+            elif node.val > val:
+                node.left = dfs(node.left)
+            return node
+        return dfs(root)
+
+            
+# time complexity: O(H) where H is the height of the binary search tree. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N).
+# space complexity: O(H) where H is the height of the binary search tree. This space is used by the recursion stack. In the worst case (skewed tree), H can be O(N). In a balanced tree, H is O(log N). 
