@@ -4,8 +4,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-from collections import deque
-
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         res = []
@@ -25,7 +23,6 @@ class Solution:
                     q.append(node.right)
             res.append(level)
         return res
-
 
 # time complexity: O(N) where N is the number of nodes in the binary tree. We visit each node exactly once.
 # space complexity: O(M) where M is the maximum number of nodes at any level in the binary tree. In the worst case, this can be O(N/2) = O(N) for a balanced binary tree.
